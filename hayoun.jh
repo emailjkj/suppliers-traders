@@ -1,0 +1,40 @@
+entity UserInfo {
+	id Integer required,
+    type Integer required,
+    status Integer required,
+    firstName String required,
+    lastName String required,
+    address String,
+    createdBy Integer required,
+    created Timestamp required,
+    updatedBy Integer,
+    updated Timestamp,
+    lastLogin Timestamp,
+    languagePreference String
+}
+
+entity UserType {
+	id Integer required,
+    description String required
+}
+
+entity AccountType {
+	id Integer required,
+    description String required
+}
+
+entity SupplierInfo {
+	id Integer,
+	type Integer
+}
+
+relationship ManyToOne {
+	UserInfo{type} to UserType{id}
+}
+
+relationship ManyToOne {
+	SupplierInfo{type} to AccountType{id}
+}
+
+
+
